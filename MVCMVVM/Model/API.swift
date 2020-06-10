@@ -14,7 +14,7 @@ class API{
         let url = URL(string: url)!
       let ses =  URLSession.shared.dataTask(with: url) { data, res, err in
             if let error = err{
-                print(error.localizedDescription)
+               // print(error.localizedDescription)
                 return
             }
             if let data = data{

@@ -9,21 +9,22 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var userDescription: UILabel!
     @IBOutlet weak var optionalDescription: UILabel!
     
-    @IBOutlet weak var optionalHeight: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
+ 
     var user:User!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -32,16 +33,20 @@ class UserTableViewCell: UITableViewCell {
         
         name.text = user.name
         userDescription.text = user.website
-       
+        optionalDescription.text = user.phone
         if(showBottom){
-            optionalHeight.constant = 30
-             optionalDescription.text = user.company.catchPhrase
+            if(!stackView.subviews.contains(optionalDescription)){
+                stackView.insertArrangedSubview(optionalDescription, at: stackView.subviews.count)
+                optionalDescription.isHidden = false
+            }
         }else{
-            optionalHeight.constant = 0
-             optionalDescription.text = ""
+            if(stackView.subviews.contains(optionalDescription)){
+                stackView.removeArrangedSubview(optionalDescription)
+                optionalDescription.isHidden = true
+            }
         }
         contentView.layoutIfNeeded()
     }
     
-
+    
 }

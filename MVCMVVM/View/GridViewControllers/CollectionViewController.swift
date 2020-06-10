@@ -11,7 +11,8 @@ import UIKit
 class CollectionViewController: UIViewController  {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var collectionData = [Image]()
+    
+    var modelView = GridModelView()
     var selectedImage:Image!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,8 @@ class CollectionViewController: UIViewController  {
         let width = self.view.frame.width/3 - 10
         let collectionLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         collectionLayout.itemSize = CGSize(width: width, height: width)
-        
-        getImages {[weak self] (images) in
-            self?.collectionData = images
-            DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-            }
-        }
+        modelView.delegate = self
+        modelView.getData()
         // Do any additional setup after loading the view.
     }
     
@@ -40,19 +36,22 @@ class CollectionViewController: UIViewController  {
 
 }
 
-extension CollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate{
+extension CollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate,GridModelViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionData.count
+        return modelView.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.setImage(collectionData[indexPath.row])
+        cell.setImage(modelView.data[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedImage = collectionData[indexPath.row]
+        selectedImage = modelView.data[indexPath.row]
         performSegue(withIdentifier: "toFullSizeImage", sender: nil)
+    }
+    func onDataUpdate() {
+        collectionView.reloadData()
     }
 }

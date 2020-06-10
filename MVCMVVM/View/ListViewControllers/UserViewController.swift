@@ -13,7 +13,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userLabel.text = user.address.geo.lat
+        userLabel.text = user.address.geo.lat /// just a test 
         // Do any additional setup after loading the view.
     }
     

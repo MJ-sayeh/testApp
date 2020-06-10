@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA56F3362490F97400940B36 /* ListModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F3352490F97400940B36 /* ListModelView.swift */; };
+		FA56F3382490F98300940B36 /* GridModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F3372490F98300940B36 /* GridModelView.swift */; };
 		FAAA47D2248E759F008ABCE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA47D1248E759F008ABCE5 /* AppDelegate.swift */; };
 		FAAA47D4248E759F008ABCE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA47D3248E759F008ABCE5 /* SceneDelegate.swift */; };
-		FAAA47D6248E759F008ABCE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA47D5248E759F008ABCE5 /* ViewController.swift */; };
+		FAAA47D6248E759F008ABCE5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA47D5248E759F008ABCE5 /* ListViewController.swift */; };
 		FAAA47D9248E759F008ABCE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAA47D7248E759F008ABCE5 /* Main.storyboard */; };
 		FAAA47DC248E759F008ABCE5 /* MVCMVVM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAA47DA248E759F008ABCE5 /* MVCMVVM.xcdatamodeld */; };
 		FAAA47DE248E75A0008ABCE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAA47DD248E75A0008ABCE5 /* Assets.xcassets */; };
@@ -25,10 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA56F3352490F97400940B36 /* ListModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModelView.swift; sourceTree = "<group>"; };
+		FA56F3372490F98300940B36 /* GridModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridModelView.swift; sourceTree = "<group>"; };
 		FAAA47CE248E759F008ABCE5 /* MVCMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVCMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAA47D1248E759F008ABCE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAA47D3248E759F008ABCE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAAA47D5248E759F008ABCE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAAA47D5248E759F008ABCE5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		FAAA47D8248E759F008ABCE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAAA47DB248E759F008ABCE5 /* MVCMVVM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MVCMVVM.xcdatamodel; sourceTree = "<group>"; };
 		FAAA47DD248E75A0008ABCE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA56F3342490F79800940B36 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA56F3352490F97400940B36 /* ListModelView.swift */,
+				FA56F3372490F98300940B36 /* GridModelView.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		FAAA47C5248E759F008ABCE5 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +88,8 @@
 		FAAA47D0248E759F008ABCE5 /* MVCMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				FA56F3342490F79800940B36 /* ViewModels */,
 				FAAA47FC2490C30D008ABCE5 /* MVCMVVM.entitlements */,
-				FAAA47EA248E7B78008ABCE5 /* Controllers */,
 				FAAA47E9248E7B71008ABCE5 /* View */,
 				FAAA47E8248E7B68008ABCE5 /* Model */,
 				FAAA47D1248E759F008ABCE5 /* AppDelegate.swift */,
@@ -103,25 +116,18 @@
 		FAAA47E9248E7B71008ABCE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAAA48022490CD8D008ABCE5 /* GridViewControllers */,
+				FAAA48012490CD7A008ABCE5 /* ListViewControllers */,
 				FAAA47ED2490A675008ABCE5 /* ImageCollectionViewCell.swift */,
 				FAAA47FA2490B586008ABCE5 /* UserTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		FAAA47EA248E7B78008ABCE5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				FAAA48022490CD8D008ABCE5 /* GridViewControllers */,
-				FAAA48012490CD7A008ABCE5 /* ListViewControllers */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		FAAA48012490CD7A008ABCE5 /* ListViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAAA47D5248E759F008ABCE5 /* ViewController.swift */,
+				FAAA47D5248E759F008ABCE5 /* ListViewController.swift */,
 				FAAA47FF2490CC9F008ABCE5 /* UserViewController.swift */,
 			);
 			path = ListViewControllers;
@@ -213,15 +219,17 @@
 			files = (
 				FAAA47EE2490A675008ABCE5 /* ImageCollectionViewCell.swift in Sources */,
 				FAAA48002490CC9F008ABCE5 /* UserViewController.swift in Sources */,
+				FA56F3362490F97400940B36 /* ListModelView.swift in Sources */,
 				FAAA47DC248E759F008ABCE5 /* MVCMVVM.xcdatamodeld in Sources */,
 				FAAA47FE2490CA61008ABCE5 /* images.swift in Sources */,
-				FAAA47D6248E759F008ABCE5 /* ViewController.swift in Sources */,
+				FAAA47D6248E759F008ABCE5 /* ListViewController.swift in Sources */,
 				FAAA47F02490A8D6008ABCE5 /* FullSizeImageViewController.swift in Sources */,
 				FAAA47FB2490B586008ABCE5 /* UserTableViewCell.swift in Sources */,
 				FAAA47F22490AD12008ABCE5 /* User.swift in Sources */,
 				FAAA47D2248E759F008ABCE5 /* AppDelegate.swift in Sources */,
 				FAAA47D4248E759F008ABCE5 /* SceneDelegate.swift in Sources */,
 				FAAA47F92490AF2A008ABCE5 /* API.swift in Sources */,
+				FA56F3382490F98300940B36 /* GridModelView.swift in Sources */,
 				FAAA47EC2490A4B7008ABCE5 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

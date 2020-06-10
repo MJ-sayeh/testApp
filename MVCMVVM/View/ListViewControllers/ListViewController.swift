@@ -8,51 +8,59 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
 
-    var data = [User]()
-    var selectedUser : User?
+    var modelView = ListModelView()
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        getUsers { [weak self] (users) in
-            DispatchQueue.main.async {
-                self?.data = users
-                self?.tableView.reloadData()
-            }
-        }
+        modelView.delegate = self
+        modelView.getData()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? UserViewController{
-            destinationViewController.user = selectedUser
+            destinationViewController.user = modelView.selectedUser
         }
     }
 
 }
 
-extension ViewController: UITableViewDataSource,UITableViewDelegate {
+extension ListViewController: UITableViewDataSource,UITableViewDelegate,ListModelViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return modelView.data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
-        let user = data[indexPath.row]
+        let user = modelView.data[indexPath.row]
         cell.setUser(user, showBottom: indexPath.row % 2 == 0)
         return cell
         
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedUser = data[indexPath.row]
+        modelView.selectedUser = modelView.data[indexPath.row]
         tableView.cellForRow(at: indexPath)?.isSelected = false
-        
         performSegue(withIdentifier: "toUser", sender: nil)
     }
-    
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            modelView.deleteUserAt(indexPath.row)
+            
+        }
+    }
+    func onDataUpdate() {
+        tableView.reloadData()
+    }
+    func onRowAdded(_ index: Int) {
+        tableView.insertRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
+    }
+    func onRowDeleted(_ index: Int) {
+        tableView.deleteRows(at: [IndexPath(item: index, section: 0)], with: .automatic)// to preserve animation
+    }
 
 }
