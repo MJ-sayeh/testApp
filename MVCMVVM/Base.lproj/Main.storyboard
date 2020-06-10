@@ -39,17 +39,17 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQd-gp-7b5">
-                                                            <rect key="frame" x="0.0" y="38" width="398" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQd-gp-7b5">
+                                                            <rect key="frame" x="0.0" y="38" width="398" height="30.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="OcS-rJ-tAs"/>
+                                                                <constraint firstAttribute="height" priority="750" constant="30" id="OcS-rJ-tAs"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="745" verticalCompressionResistancePriority="745" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hJU-Ab-jhX">
-                                                            <rect key="frame" x="0.0" y="76" width="398" height="30.5"/>
+                                                            <rect key="frame" x="0.0" y="76.5" width="398" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="OrF-l1-aSC"/>
                                                             </constraints>

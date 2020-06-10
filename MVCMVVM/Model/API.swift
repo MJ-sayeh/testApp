@@ -13,8 +13,13 @@ class API{
     static func getData(url:String,completion:@escaping(Data)->())->URLSessionDataTask{
         let url = URL(string: url)!
       let ses =  URLSession.shared.dataTask(with: url) { data, res, err in
-            if let error = err{
-               // print(error.localizedDescription)
+            if let error = err as? NSError{
+                if error.code !=  NSURLErrorCancelled{
+                         print(error.localizedDescription)
+                }else{
+                    print("helllooo")
+                }
+           
                 return
             }
             if let data = data{
